@@ -25,9 +25,15 @@ jobs:
           command: bash <(curl -s https://codecov.io/bash)
       - run:
           name: run tests
-          command: npm test && codecov
+          command: npm test
       - store_test_results:
           path: reports
+  code-coverage:
+    orbs:
+      codecov: codecov/codecov@1.0.2
+    steps:
+      - codecov/upload:
+          file: { { coverage_report_filepath } }
   release:
     machine:
       docker_layer_caching: false
@@ -82,6 +88,9 @@ workflows:
   frontend-unit-tests-and-deploy:
     jobs:
       - client-unit-tests
+      - code-coverage:
+          requires:
+            - client-unit-tests
       - release:
           filters:
             branches:
