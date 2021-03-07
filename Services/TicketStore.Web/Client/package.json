@@ -6,7 +6,7 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "test": "react-scripts test --env=jsdom --reporters=default --reporters=jest-junit",
+    "test": "react-scripts test --env=jsdom --reporters=default --reporters=jest-junit --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "bundlesize": "bundlesize",
     "check-bundlesize": "react-scripts build && bundlesize"
@@ -20,6 +20,14 @@
     "not ie <= 11",
     "not op_mini all"
   ],
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!node_modules/"
+    ],
+    "coverageReporters": ["lcov"]
+  },
   "jest-junit": {
     "suiteName": "jest tests",
     "outputDirectory": "reports",

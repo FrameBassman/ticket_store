@@ -21,8 +21,11 @@ jobs:
           name: build typescript
           command: npm run build
       - run:
+          name: install codecov
+          command: bash <(curl -s https://codecov.io/bash)
+      - run:
           name: run tests
-          command: npm test
+          command: npm test && codecov
       - store_test_results:
           path: reports
   release:

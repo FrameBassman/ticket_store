@@ -24,6 +24,11 @@ coverage:
         threshold: 10%
         paths:
           - "Services/TicketStore.Data"
+      client:
+        target: 30%
+        threshold: 10%
+        paths:
+          - "Services/TicketStore.Web/Client"
 
 ignore:
   - ".ci"  # ignore folders and all its contents
