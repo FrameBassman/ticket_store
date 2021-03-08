@@ -21,7 +21,6 @@
     "not op_mini all"
   ],
   "jest": {
-    "coverageDirectory": "./coverage/",
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
       "!node_modules/"

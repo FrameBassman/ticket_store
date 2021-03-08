@@ -30,7 +30,6 @@ jobs:
           token: a1816d82-dc38-4cde-addd-c2883f9df596
       - store_test_results:
           path: reports
-
   release:
     machine:
       docker_layer_caching: false
